@@ -18,11 +18,11 @@ function Movies() {
     }, [])
 
   return (
-    <div className='movie-container'>
+    <Box className='movie-container'>
         <MoviesList movies={movies} />
         <MovieForm />
 
-    </div>
+    </Box>
   )
 }
 

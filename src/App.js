@@ -1,11 +1,6 @@
 import React from 'react'
 import { Navigate, Route, BrowserRouter as Router, Routes } from 'react-router-dom'
 
-import Footer from './components/Footer/Footer';
-import Header from './components/Header/Header';
-import Main from './components/Main/Main';
-import Navigation from './components/Navigation/Navigation';
-import ServiceForm from './components/ServiceForm/ServiceForm';
 import Layout from './components/Studios/Layout';
 import HomePage from './components/Studios/HomePage';
 import Movies from './components/Movies/Movies';
@@ -15,11 +10,6 @@ import Directors from './components/Directors/Directors';
 import ErrorPage from './components/Studios/ErrorPage';
 
 import './App.css';
-
-
-
-
-
 
 function App() {
   return (
