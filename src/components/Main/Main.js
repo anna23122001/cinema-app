@@ -5,7 +5,7 @@ import Movies from '../Movies/Movies'
 function Main() {
   return (
     <div className='main-container'>
-   <Movies/>
+      <Movies />
     </div>
   )
 }

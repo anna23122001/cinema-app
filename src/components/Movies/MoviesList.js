@@ -12,7 +12,7 @@ function MoviesList({movies}) {
                 />
             )
 
-        })}
+        })} 
     </div>
   )
 }

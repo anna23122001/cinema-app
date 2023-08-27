@@ -1,8 +1,10 @@
 import React, {useEffect, useState} from 'react'
-import './Movies.css'
-import MoviesList from './MoviesList';
 
-import api from '../../api/cinema-service'
+import api from '../../api/cinema-service';
+import MoviesList from './MoviesList';
+import MovieForm from './MovieForm';
+
+import './Movies.css'
 
 function Movies() {
 
@@ -18,7 +20,7 @@ function Movies() {
   return (
     <div className='movie-container'>
         <MoviesList movies={movies} />
-       
+        <MovieForm />
 
     </div>
   )
