@@ -1,26 +1,22 @@
-import React, {useEffect, useState} from 'react'
+import React, {useEffect} from 'react'
 import { Box, Button } from '@mui/material';
 import { Link, Navigate, Route, Routes } from 'react-router-dom';
-import api from '../../api/cinema-service';
+import { useDispatch, useSelector } from 'react-redux';
 
 import MoviesList from './MoviesList'
 import MovieItem from './MovieItem';
 import './Movies.css'
-
-
-
+import { getAllMovies } from '../../store/slices/MoviesSlice'
+import MovieForm from './MovieForm';
 
 
 function Movies() {
-
-    const [movies, setMovies] = useState([]);
+  
+  const dispatch = useDispatch()
 
     useEffect(() => {
-        api.get('/movies')
-        .then(({data}) => {
-            data ? setMovies(data) : setMovies([]);
-        })
-    }, [])
+       dispatch(getAllMovies())
+    }, [dispatch])
 
   return (
     <Box className='movie-container'>
@@ -42,8 +38,9 @@ function Movies() {
       </Button>
 
       <Routes>
-        <Route path="/" element={<MoviesList movies={movies} /> } />
+        <Route path="/" element={<MoviesList /> } />
         <Route path=":id" element={<MovieItem />} />
+        <Route path="add/:id" element={<MovieForm />} />
 
         <Route path="add" element={<Navigate to="/movies/add/:id"/> } />
       </Routes>

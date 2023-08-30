@@ -1,36 +1,34 @@
-import React from 'react'
 import { Box, Button, ButtonGroup, List, ListItem, Stack } from '@mui/material'
+import React from 'react'
+import { Link } from 'react-router-dom';
 import EditRoundedIcon from '@mui/icons-material/EditRounded'
 import DeleteForeverRoundedIcon from '@mui/icons-material/DeleteForeverRounded'
-import { Link } from 'react-router-dom'
-import { useDispatch, useSelector } from 'react-redux'
+import { useSelector } from 'react-redux';
 
-
-
-function MoviesList() {
- 
-
-  const movies = useSelector((state) => state.listOfMovies.movies)
+function ActorsList() {
   
+  const actors = useSelector((state) => state.listOfActors.actors)
+
   return (
-    <Box className='movie-list-container'>
-        <List>
-          {movies.map((movie) => {
+    <Box>
+      <List>
+        {actors !== undefined ? (
+           actors.map((actor) => {
             return(
-              <Stack key={movie.id} direction='row'>
+              <Stack key={actor.id} direction='row'>
                  <ListItem>
-                  <Link to={`${movie.id}`}>
-                      {movie.title}</Link>                
+                  <Link to={`${actor.id}`}>
+                      {actor.fullName}</Link>                
                 </ListItem>
                 <ButtonGroup>
 
                   <Button startIcon={<EditRoundedIcon />}>
-                    <Link to={`add/${movie.id}`}>
+                    <Link to={`add/${actor.id}`}>
                       Edit</Link>  
                   </Button>
 
                   <Button startIcon={<DeleteForeverRoundedIcon />}>
-                    <Link to={`add/${movie.id}`}>
+                    <Link to={`add/${actor.id}`}>
                       Del</Link>  
                   </Button>
                   
@@ -38,10 +36,16 @@ function MoviesList() {
              </Stack>
             )
 
-          })} 
-        </List>
+          })
+        ) : 
+        <p>No actors available</p>
+          
+  } 
+      </List>
+
+
     </Box>
   )
 }
 
-export default MoviesList
+export default ActorsList
