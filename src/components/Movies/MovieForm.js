@@ -1,10 +1,15 @@
-import { Field, FieldArray, Form, Formik } from 'formik'
-import React from 'react'
-import { useDispatch, useSelector } from 'react-redux'
+import React from 'react';
+import { ErrorMessage, Field, FieldArray, Form, Formik } from 'formik';
+import { useDispatch, useSelector } from 'react-redux';
+import { useParams, useNavigate } from 'react-router-dom';
+import { Button, ButtonGroup } from '@mui/material';
+import * as Yup from 'yup';
 
-import { createNewMovie, updateMovie } from '../../store/slices/MoviesSlice'
+
+import { createNewMovie, updateMovie } from '../../store/slices/MoviesSlice';
 import { emptyMovie } from '../../constants';
-import { useParams } from 'react-router-dom';
+
+import './MovieForm.css'
 
 function MovieForm() {
 
@@ -12,37 +17,42 @@ function MovieForm() {
   const movies = useSelector((state) => state.listOfMovies.movies);
 
   const { id } = useParams();
-
   const currentMovie = movies.find((movie) => movie.id === Number(id));
-
 
   const onFormSubmit = (values) => {
     !values.id
       ? dispatch(createNewMovie(values))
       : dispatch(updateMovie(values))
   }
+  const navigate = useNavigate();
+  const goHome = () => navigate('/movies');
 
-  const renderForm = ({values}) => {
+  const schema = Yup.object().shape({
+    title: Yup.string().required('Title is required field')
+  })
+
+  const renderForm = ({values, isValid, handleReset}) => {
     return (
-      <Form>
+      <Form className='form-container'>
         <div>
           <label htmlFor='title'>Title</label>
           <Field
-            id='title'
             type='text'
-            name='title'
-          />
+            name='title'/>
         </div>
+        <ErrorMessage name='title'>
+          {(msg) => <div className='error'>{msg}</div>}
+        </ErrorMessage>
 
-        <div>
-          <label>Actors</label>
+        <fieldset className='items-container'>
+          <legend>Actors</legend>
           <FieldArray name='actors'>
             {(arrayHelpers) => (
               <div>
                 {values.actors && values.actors.length > 0 ? (
                   values.actors.map((actor, index) => (
                   <div key={index}>
-                    <Field name={`actors.${index}`}/>
+                      <Field name={`actors.${index}`} />
                     <button
                       type='button'
                       onClick={() => arrayHelpers.remove(index)}>
@@ -51,8 +61,7 @@ function MovieForm() {
 
                     <button
                       type='button'
-                      onClick={() => arrayHelpers.insert(index, '')}
-                    >
+                      onClick={() => arrayHelpers.insert(index, '')}>
                       +
                     </button>
                     </div>
@@ -63,18 +72,13 @@ function MovieForm() {
                       Add an actor
                     </button>
                 )}
-                <div>
-                  <button type="submit">Submit</button>
-                </div>
                 </div>
             )}
-
           </FieldArray>
-        </div>
-                    
+        </fieldset>        
         
-        <div>
-          <label>Directors</label>
+        <fieldset>
+          <legend>Directors</legend>
           <FieldArray name='directors'>
             {(arrayHelpers) => (
               <div>
@@ -90,8 +94,7 @@ function MovieForm() {
 
                     <button
                       type='button'
-                      onClick={() => arrayHelpers.insert(index, '')}
-                    >
+                      onClick={() => arrayHelpers.insert(index, '')}>
                       +
                     </button>
                     </div>
@@ -102,17 +105,13 @@ function MovieForm() {
                       Add a director
                     </button>
                 )}
-                <div>
-                  <button type="submit">Submit</button>
-                </div>
                 </div>
             )}
-
           </FieldArray>
-        </div>
+        </fieldset>
 
-        <div>
-          <label>Studios</label>
+        <fieldset>
+          <legend>Studios</legend>
           <FieldArray name='studios'>
             {(arrayHelpers) => (
               <div>
@@ -128,8 +127,7 @@ function MovieForm() {
 
                     <button
                       type='button'
-                      onClick={() => arrayHelpers.insert(index, '')}
-                    >
+                      onClick={() => arrayHelpers.insert(index, '')}>
                       +
                     </button>
                     </div>
@@ -138,33 +136,37 @@ function MovieForm() {
                       type='button'
                       onClick={() => arrayHelpers.push('')}>
                       Add a studio
-                    </button>
-                )}
-                <div>
-                  <button type="submit">Submit</button>
-                </div>
+                    </button>)}
                 </div>
             )}
-
           </FieldArray>
-        </div>
-
+        </fieldset>
          <div>
           <label htmlFor='poster'>Poster</label>
           <Field
-            id='poster'
-            type='file'
-            name='poster'
-          />
+            as='textarea'
+            name='poster'/>
         </div>
-      </Form>
+        
+      <ButtonGroup>
+          <Button type="submit"
+            disabled={!isValid}>
+              Save</Button>
+          <Button type='button'
+            onClick={handleReset}>
+              Reset</Button>
+          <Button type='button'
+            onClick={goHome}>
+              Return</Button>
+      </ButtonGroup>
+    </Form>
     )
   }
-
   return (
     <Formik
       initialValues={currentMovie ? currentMovie : emptyMovie}
       onSubmit={onFormSubmit}
+      validationSchema={schema}
     >
         {renderForm}
     </Formik>

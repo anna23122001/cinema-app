@@ -6,12 +6,18 @@ import { Link } from 'react-router-dom'
 import { useDispatch, useSelector } from 'react-redux'
 
 
+import { deleteMovie } from '../../store/slices/MoviesSlice'
+
 
 function MoviesList() {
  
-
+  const dispatch = useDispatch();
   const movies = useSelector((state) => state.listOfMovies.movies)
   
+  const onDelete = (id) => {
+    dispatch(deleteMovie(id))
+  }
+
   return (
     <Box className='movie-list-container'>
         <List>
@@ -29,9 +35,10 @@ function MoviesList() {
                       Edit</Link>  
                   </Button>
 
-                  <Button startIcon={<DeleteForeverRoundedIcon />}>
-                    <Link to={`add/${movie.id}`}>
-                      Del</Link>  
+                  <Button
+                    onClick={() => onDelete(movie.id)}
+                    startIcon={<DeleteForeverRoundedIcon />}>
+                      Del 
                   </Button>
                   
                 </ButtonGroup>

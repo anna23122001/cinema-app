@@ -1,0 +1,18 @@
+* {
+    box-sizing: border-box;
+    font-size: 20px;
+}
+.error {
+    color: #960018;
+    font-size: 0.8em;
+    margin-top: -15px;
+}
+
+label {
+    margin: 90px;
+}
+.form-container{
+   background-color:#ABCDEF;
+   display: flex;
+   flex-direction: column;
+}
