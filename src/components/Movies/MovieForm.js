@@ -39,7 +39,7 @@ function MovieForm() {
     return (
       <Form className='form-container'>
         <Stack
-          spacing={2}>
+          spacing={1}>
           <label htmlFor='title'>Title</label>
           <Field
             as={TextField}
@@ -94,7 +94,7 @@ function MovieForm() {
                         color:'#1000b4'
                       }}
                       onClick={() => arrayHelpers.push('')}>
-                      Add a actor
+                      Add an actor
                     </Button>
                 )}
                 </div>
@@ -197,8 +197,9 @@ function MovieForm() {
           <Field
             as={TextField}
             sx={{
-              width: 300
+              width: 600
             }}
+            type='text'
             size='small'
             name='poster'/>
         </div>

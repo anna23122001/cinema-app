@@ -14,7 +14,7 @@ import { Grid, Stack } from '@mui/material';
 
 function App() {
   return (
-      <Router className="app-container">
+      <Router>
       <Routes>
         <Route path="/" element={<Layout />}>
           <Route index="/" element={<HomePage />} />
