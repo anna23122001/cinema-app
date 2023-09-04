@@ -10,7 +10,7 @@ import './Layout.css'
 function Layout() {
   return (
     <Box>
-      <Grid container spacing={3}>
+      <Grid container spacing={0}>
         <Grid item x1={12} lg={12} md={12} sm={12} xs={12}>
           <Header/>
         </Grid>
@@ -46,9 +46,9 @@ function Layout() {
 
         </Grid>
 
-        <Grid item x1={3} lg={3} md={3} sm={3} xs={3}>
+        {/* <Grid item x1={3} lg={3} md={3} sm={3} xs={3}>
           <ServiceForms/>
-          </Grid>
+        </Grid> */}
           <Grid item xl={12} lg={12} md={12} sm={12} xs={12}>
             <Footer />
           </Grid>

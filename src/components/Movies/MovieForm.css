@@ -5,7 +5,7 @@
 .error {
     color: #960018;
     font-size: 0.8em;
-    margin-top: -15px;
+   
 }
 
 label {
@@ -15,4 +15,6 @@ label {
    background-color:#ABCDEF;
    display: flex;
    flex-direction: column;
+   width: 500px;
+   min-height: 860px;
 }

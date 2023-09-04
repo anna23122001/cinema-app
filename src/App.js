@@ -10,10 +10,11 @@ import Directors from './components/Directors/Directors';
 import ErrorPage from './components/Studios/ErrorPage';
 
 import './App.css';
+import { Grid, Stack } from '@mui/material';
 
 function App() {
   return (
-    <Router className="app-container">
+      <Router className="app-container">
       <Routes>
         <Route path="/" element={<Layout />}>
           <Route index="/" element={<HomePage />} />
@@ -24,10 +25,10 @@ function App() {
           <Route path="error" element={<ErrorPage />} />
           <Route path="*" element={<Navigate to="/error" replace/>}/>
         </Route>
-        
-
       </Routes>
     </Router>
+ 
+    
   );
 }
 
