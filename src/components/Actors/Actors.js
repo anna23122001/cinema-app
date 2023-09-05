@@ -8,6 +8,7 @@ import { getAllActors } from '../../store/slices/ActorsSlice'
 
 import ActorItem from './ActorItem';
 import ActorsList from './ActorsList';
+import ActorForm from './ActorForm';
 
 function Actors() {
 
@@ -23,10 +24,10 @@ function Actors() {
       <Button
         variant='contained'
         size='small'
-        startIcon={<AddIcon style={{color:'#1000b4', fontSize:'large'}} />}
+        startIcon={<AddIcon style={{color:'#1000b4', fontSize:'large', margin:'8'}} />}
         sx={{
-          p: "5px 50px",
-          m: "10px",
+          p: " 5px 25px",
+          m: "10px 0 20px 200px",
           backgroundColor: "#f3e53a",
           fontSize: "16px"
         }}>
@@ -40,6 +41,8 @@ function Actors() {
       <Routes>
         <Route path="/" element={<ActorsList />} />
         <Route path=":id" element={<ActorItem />} />
+        <Route path="add/:id" element={<ActorForm />} />
+        
         <Route path="add" element={<Navigate to="/actors/add/:id"/> } />
       </Routes>
     

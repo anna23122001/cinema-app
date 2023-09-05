@@ -69,30 +69,30 @@
     {
       "id": 1,
       "title": "Avatar",
-      "directors": [
+      "producers": [
         "James Cameron"
       ],
-      "actors": [
+      "stars": [
         "Will Smith",
         "Alice Braga"
       ],
-      "studios": [
+      "companies": [
         "20th Century Studios, Inc."
       ],
-      "poster": "http://ia.media-imdb.com/images/M/MV5BMTYwOTEwNjAzMl5BMl5BanBnXkFtZTcwODc5MTUwMw@@._V1_SX300.jpg"
+      "poster": "https://a.allegroimg.com/original/11b44d/0445dffd4b0ebb36ffe413f634ac/Plakat-filmowy-Avatar-James-Cameron-40x30-cm-Obraz"
     },
     {
       "id": 1678,
       "title": "I Am Legend",
-      "directors": [
+      "producers": [
         "Francis Lawrence"
       ],
-      "actors": [
+      "stars": [
         "Sigourney Weaver",
         "Sam Worthington",
         "Zoe Saldana"
       ],
-      "studios": [
+      "companies": [
         "20th Century Studios, Inc."
       ],
       "poster": "https://flxt.tmsimg.com/assets/p170977_p_v7_ae.jpg"
@@ -100,13 +100,13 @@
     {
       "id": 2,
       "title": "Alien",
-      "directors": [
+      "producers": [
         "Ridley Scott"
       ],
-      "actors": [
+      "stars": [
         "Sigourney Weaver"
       ],
-      "studios": [
+      "companies": [
         "20th Century Studios, Inc."
       ],
       "poster": "https://upload.wikimedia.org/wikipedia/ru/thumb/c/c3/Alien_movie_poster.jpg/232px-Alien_movie_poster.jpg"
@@ -114,13 +114,13 @@
     {
       "id": 3,
       "title": "Aliens",
-      "directors": [
+      "producers": [
         "James Cameron"
       ],
-      "actors": [
+      "stars": [
         "Sigourney Weaver"
       ],
-      "studios": [
+      "companies": [
         "20th Century Studios, Inc."
       ],
       "poster": "https://upload.wikimedia.org/wikipedia/ru/thumb/f/fb/Aliens_poster.jpg/196px-Aliens_poster.jpg"
@@ -128,14 +128,14 @@
     {
       "id": 4,
       "title": "Pirates of the Caribbean:",
-      "directors": [
+      "producers": [
         "Gregor (Gore) Verbinski"
       ],
-      "actors": [
+      "stars": [
         "Johnny Depp",
         "Orlando Bloom"
       ],
-      "studios": [
+      "companies": [
         "Walt Disney Pictures"
       ],
       "poster": "https://upload.wikimedia.org/wikipedia/ru/thumb/7/79/Pirates-of-the-Caribbean-The-Curse-of-the-Black-Pearl-.jpg/201px-Pirates-of-the-Caribbean-The-Curse-of-the-Black-Pearl-.jpg"
@@ -143,14 +143,14 @@
     {
       "id": 165849,
       "title": "The Lord Of The Rings",
-      "directors": [
+      "producers": [
         "Peter Jackson"
       ],
-      "actors": [
+      "stars": [
         "Elijah Wood",
         "Ian McKellen"
       ],
-      "studios": [
+      "companies": [
         "New Line Cinema "
       ],
       "poster": "https://upload.wikimedia.org/wikipedia/ru/thumb/0/08/The_Lord_of_the_Rings._The_Fellowship_of_the_Ring_%E2%80%94_movie.jpg/203px-The_Lord_of_the_Rings._The_Fellowship_of_the_Ring_%E2%80%94_movie.jpg"

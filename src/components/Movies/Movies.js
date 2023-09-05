@@ -6,7 +6,6 @@ import AddIcon from '@mui/icons-material/Add';
 
 import MoviesList from './MoviesList'
 import MovieItem from './MovieItem';
-import './Movies.css'
 import { getAllMovies } from '../../store/slices/MoviesSlice'
 import MovieForm from './MovieForm';
 
@@ -24,12 +23,12 @@ function Movies() {
       <Button
         variant='contained'
         size='small'
-        startIcon={<AddIcon style={{color:'#1000b4', fontSize:'large'}} />}
+        startIcon={<AddIcon style={{color:'#1000b4', fontSize:'large', margin:'8'}} />}
         sx={{
-          p: "5px 50px",
-          m: "10px",
+          p: " 5px 25px",
+          m: "10px 0 20px 250px",
           backgroundColor: "#f3e53a",
-          fontSize: "16px"
+          fontSize: "18px"
         }}>
         <Link
           style={{color: '#1000b4'}}

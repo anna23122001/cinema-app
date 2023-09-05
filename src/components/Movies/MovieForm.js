@@ -39,13 +39,13 @@ function MovieForm() {
     return (
       <Form className='form-container'>
         <Stack
-          spacing={1}>
+          spacing={1}
+          sx={{
+              width: 400,
+              margin: '0 auto'}}>
           <label htmlFor='title'>Title</label>
           <Field
             as={TextField}
-            sx={{
-              width: 350
-            }}
             size='small'
             type='text'
             name='title'/>
@@ -58,26 +58,25 @@ function MovieForm() {
             
         <fieldset className='items-container'>
           <legend>Actors</legend>
-          <FieldArray name='actors'>
+          <FieldArray name='stars'>
             {(arrayHelpers) => (
               <div>
-                {values.actors && values.actors.length > 0 ? (
-                  values.actors.map((actor, index) => (
+                {values.stars && values.stars.length > 0 ? (
+                  values.stars.map((_, index) => (
                   <div key={index}>
                       <Field
                           as={TextField}
                             sx={{
                             width: 300}}
                           size='small'
-                          name={`actors.${index}`} />
-                    <Button
+                          name={`stars.${index}`} />
+                      <Button
                           type='button'
                           startIcon={<RemoveIcon />}
                           size='medium'
                           onClick={() => arrayHelpers.remove(index)}>
                         </Button>
-
-                        <Button
+                      <Button
                           type='button'
                           startIcon={<AddIcon />}
                           size='medium'
@@ -104,26 +103,25 @@ function MovieForm() {
         
         <fieldset>
           <legend>Directors</legend>
-          <FieldArray name='directors'>
+          <FieldArray name='producers'>
             {(arrayHelpers) => (
               <div>
-                {values.directors && values.directors.length > 0 ? (
-                  values.directors.map((director, index) => (
+                {values.producers && values.producers.length > 0 ? (
+                  values.producers.map((_, index) => (
                   <div key={index}>
                       <Field
                         as={TextField}
                         sx={{
                           width: 300}}
                         size='small'
-                        name={`directors.${index}`} />
+                        name={`producers.${index}`} />
                     <Button
                           type='button'
                           startIcon={<RemoveIcon />}
                           size='medium'
                           onClick={() => arrayHelpers.remove(index)}>
                         </Button>
-
-                        <Button
+                      <Button
                           type='button'
                           startIcon={<AddIcon />}
                           size='medium'
@@ -150,18 +148,18 @@ function MovieForm() {
 
         <fieldset>
           <legend>Studios</legend>
-          <FieldArray name='studios'>
+          <FieldArray name='companies'>
             {(arrayHelpers) => (
               <div>
-                {values.studios && values.studios.length > 0 ? (
-                  values.studios.map((studio, index) => (
+                {values.companies && values.companies.length > 0 ? (
+                  values.companies.map((_, index) => (
                   <div key={index}>
                       <Field
                         as={TextField}
                         sx={{
                           width: 300}}
                         size='small'
-                        name={`studios.${index}`} />
+                        name={`companies.${index}`} />
                         <Button
                           type='button'
                           startIcon={<RemoveIcon />}
@@ -249,7 +247,6 @@ function MovieForm() {
       initialValues={currentMovie ? currentMovie : emptyMovie}
       onSubmit={onFormSubmit}
       validationSchema={schema}
-      
     >
         {renderForm}
     </Formik>

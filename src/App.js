@@ -10,7 +10,6 @@ import Directors from './components/Directors/Directors';
 import ErrorPage from './components/Studios/ErrorPage';
 
 import './App.css';
-import { Grid, Stack } from '@mui/material';
 
 function App() {
   return (

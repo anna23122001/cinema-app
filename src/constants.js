@@ -13,8 +13,8 @@ export const setStatus = (state) => {
  
 export const emptyMovie = {
 			title: "",
-			directors: [""],
-			actors: [""],
-			studios: [""],
+			producers: [""],
+			stars: [""],
+			companies: [""],
 			poster: ""
 }

@@ -1,9 +1,9 @@
 import React from 'react'
 
-function ActorItem({actor: {fullName}}) {
+function ActorItem() {
   return (
     <div>
-        {fullName}
+
     </div>
   )
 }
