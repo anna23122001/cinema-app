@@ -42,7 +42,6 @@ const renderForm = ({ values, isValid }) => {
         <Stack
           spacing={1}
           sx={{
-            width: 400,
             margin: '0 auto',
           }}>
           <label htmlFor='fullName'>Full name</label>
@@ -104,7 +103,6 @@ const renderForm = ({ values, isValid }) => {
         <Stack
           spacing={1}
           sx={{
-            width: 400,
             margin: '0 auto',
           }}
         >
@@ -114,7 +112,6 @@ const renderForm = ({ values, isValid }) => {
         <Stack
           spacing={1}
           sx={{
-            width: 400,
             margin: '0 auto',
           }}
         >

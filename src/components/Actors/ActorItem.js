@@ -11,7 +11,6 @@ import  '../Styles/ItemStyles.css'
 function ActorItem() {
 
   const actors = useSelector((state) => state.listOfActors.actors)
-
   const { id } = useParams();
 
   const star = actors.find((star) => star.id === Number(id))
@@ -37,7 +36,8 @@ function ActorItem() {
         className='item-img'/>
       </Grid>
 
-      <Grid item lg={6} md={6} xl={6} sm={6} xs={6}>
+      <Grid item lg={6} md={6} xl={6} sm={6} xs={6}
+             className='item-info'>
         <Stack>
           <h2>Actors Biography</h2>
           <h3>Movies</h3>

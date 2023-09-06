@@ -40,7 +40,6 @@ function ActorForm() {
         <Stack
           spacing={1}
           sx={{
-            width: 400,
             margin: '0 auto',
           }}
         >
@@ -103,7 +102,6 @@ function ActorForm() {
         <Stack
           spacing={1}
           sx={{
-            width: 400,
             margin: '0 auto',
           }}
         >
@@ -113,7 +111,6 @@ function ActorForm() {
         <Stack
           spacing={1}
           sx={{
-            width: 400,
             margin: '0 auto',
           }}
         >

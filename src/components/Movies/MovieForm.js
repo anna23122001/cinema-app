@@ -41,7 +41,6 @@ function MovieForm() {
         <Stack
           spacing={1}
           sx={{
-              width: 400,
               margin: '0 auto'}}>
           <label htmlFor='title'>Title</label>
           <Field

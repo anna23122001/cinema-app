@@ -23,7 +23,8 @@ function DirectorItem() {
 
   return (
     <Grid container>
-      <Grid item lg={12}
+      <Grid item
+        lg={12}
         md={12}
 				xl={12}
 				sm={12}
@@ -36,7 +37,8 @@ function DirectorItem() {
           className='item-img' />
         
       </Grid>
-          <Grid item lg={6} md={6} xl={6} sm={6} xs={6}>
+      <Grid item lg={6} md={6} xl={6} sm={6} xs={6}
+       className='item-info'>
         <Stack>
           <h2>Directors Biography</h2>
           <h3>Movies</h3>

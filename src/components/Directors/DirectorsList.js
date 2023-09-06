@@ -10,9 +10,9 @@ function DirectorsList() {
 
   const dispatch = useDispatch();
   const directors = useSelector((state) => state.listOfDirectors.directors);
-  console.log(directors)
+
   const onDelete = (id) => {
-      dispatch(deleteDirector())
+      dispatch(deleteDirector(id))
   }
 
   return (

@@ -34,7 +34,8 @@ function MovieItem() {
         <img src={movie.poster} alt='poster'
         className='item-img' />
       </Grid>
-      <Grid item lg={6} md={6} xl={6} sm={6} xs={6}>
+      <Grid item lg={6} md={6} xl={6} sm={6} xs={6}
+             className='item-info'>
         <Stack>
           <h2>Movie`s information</h2>
 
