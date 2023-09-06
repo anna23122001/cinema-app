@@ -56,10 +56,10 @@ function MovieForm() {
           {(msg) => <div className='error'>{msg}</div>}
         </ErrorMessage>
             
-        <fieldset className='items-container'>
+        <fieldset>
           <legend>Actors</legend>
           <FieldArray name='stars'>
-            {(arrayHelpers) => (
+            {({push, remove, insert}) => (
               <div>
                 {values.stars && values.stars.length > 0 ? (
                   values.stars.map((_, index) => (
@@ -74,13 +74,13 @@ function MovieForm() {
                           type='button'
                           startIcon={<RemoveIcon />}
                           size='medium'
-                          onClick={() => arrayHelpers.remove(index)}>
+                          onClick={() => remove(index)}>
                         </Button>
                       <Button
                           type='button'
                           startIcon={<AddIcon />}
                           size='medium'
-                          onClick={() => arrayHelpers.insert(index, '')}>
+                          onClick={() => insert(index, '')}>
                       </Button>
                     </div>
                   ))) : (
@@ -92,7 +92,7 @@ function MovieForm() {
                         backgroundColor: "#f9e763",
                         color:'#1000b4'
                       }}
-                      onClick={() => arrayHelpers.push('')}>
+                      onClick={() => push('')}>
                       Add an actor
                     </Button>
                 )}
@@ -104,7 +104,7 @@ function MovieForm() {
         <fieldset>
           <legend>Directors</legend>
           <FieldArray name='producers'>
-            {(arrayHelpers) => (
+            {({push, remove, insert}) => (
               <div>
                 {values.producers && values.producers.length > 0 ? (
                   values.producers.map((_, index) => (
@@ -119,13 +119,13 @@ function MovieForm() {
                           type='button'
                           startIcon={<RemoveIcon />}
                           size='medium'
-                          onClick={() => arrayHelpers.remove(index)}>
+                          onClick={() => remove(index)}>
                         </Button>
                       <Button
                           type='button'
                           startIcon={<AddIcon />}
                           size='medium'
-                          onClick={() => arrayHelpers.insert(index, '')}>
+                          onClick={() => insert(index, '')}>
                       </Button>
                     </div>
                   ))) : (
@@ -137,7 +137,7 @@ function MovieForm() {
                         backgroundColor: "#f9e763",
                         color:'#1000b4'
                       }}
-                      onClick={() => arrayHelpers.push('')}>
+                      onClick={() => push('')}>
                       Add a director
                     </Button>
                 )}
@@ -149,7 +149,7 @@ function MovieForm() {
         <fieldset>
           <legend>Studios</legend>
           <FieldArray name='companies'>
-            {(arrayHelpers) => (
+            {({push, remove, insert}) => (
               <div>
                 {values.companies && values.companies.length > 0 ? (
                   values.companies.map((_, index) => (
@@ -164,14 +164,14 @@ function MovieForm() {
                           type='button'
                           startIcon={<RemoveIcon />}
                           size='medium'
-                          onClick={() => arrayHelpers.remove(index)}>
+                          onClick={() => remove(index)}>
                         </Button>
 
                         <Button
                           type='button'
                           startIcon={<AddIcon />}
                           size='medium'
-                          onClick={() => arrayHelpers.insert(index, '')}>
+                          onClick={() => insert(index, '')}>
                       </Button>
                     </div>
                   ))) : (
@@ -183,7 +183,7 @@ function MovieForm() {
                         backgroundColor: "#f9e763",
                         color:'#1000b4'
                       }}
-                      onClick={() => arrayHelpers.push('')}>
+                      onClick={() => push('')}>
                       Add a studio
                     </Button>)}
                 </div>

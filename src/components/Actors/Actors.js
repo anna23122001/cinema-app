@@ -20,16 +20,16 @@ function Actors() {
 
 
   return (
-      <Box className='actor-container'>
+      <Box>
       <Button
         variant='contained'
         size='small'
         startIcon={<AddIcon style={{color:'#1000b4', fontSize:'large', margin:'8'}} />}
         sx={{
           p: " 5px 25px",
-          m: "10px 0 20px 200px",
+          m: "10px 0 20px 250px",
           backgroundColor: "#f3e53a",
-          fontSize: "16px"
+          fontSize: "18px"
         }}>
         <Link
           style={{color: '#1000b4'}}

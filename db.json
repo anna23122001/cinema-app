@@ -25,6 +25,20 @@
       "birthYear": "1963",
       "nationality": "USA",
       "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/79/Johnny_Depp_Deauville_2019.jpg/220px-Johnny_Depp_Deauville_2019.jpg"
+    },
+    {
+      "movies": [
+        "Maid",
+        "Barbie",
+        "Suicide Squad "
+      ],
+      "fullName": "Margot Elise Robbie ",
+      "nationality": "Australia",
+      "img": "",
+      "birthday": "1990",
+      "image": "https://cdn.britannica.com/32/201632-050-66971649/actress-Margot-Robbie-Australian-2018.jpg",
+      "id": 3,
+      "birthYear": "1990"
     }
   ],
   "directors": [

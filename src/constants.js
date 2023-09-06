@@ -18,3 +18,11 @@ export const emptyMovie = {
 			companies: [""],
 			poster: ""
 }
+
+export const emptyActor = {
+			movies: [""],
+			fullName: "",
+			birthYear: "",
+			nationality: "",
+			img: ""
+}
