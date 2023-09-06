@@ -13,7 +13,7 @@ import ClearIcon from '@mui/icons-material/Clear';
 import { createNewMovie, updateMovie } from '../../store/slices/MoviesSlice';
 import { emptyMovie } from '../../constants';
 
-import './MovieForm.css'
+import '../Styles/FormStyles.css'
 
 function MovieForm() {
 

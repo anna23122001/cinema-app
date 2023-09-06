@@ -1,13 +1,13 @@
 import React from 'react'
 import { Navigate, Route, BrowserRouter as Router, Routes } from 'react-router-dom'
 
-import Layout from './components/Studios/Layout';
-import HomePage from './components/Studios/HomePage';
+import Layout from './components/Layout';
+import HomePage from './components/HomePage';
 import Movies from './components/Movies/Movies';
 import Actors from './components/Actors/Actors';
 import Studios from './components/Studios/Studios';
 import Directors from './components/Directors/Directors';
-import ErrorPage from './components/Studios/ErrorPage';
+import ErrorPage from './components/ErrorPage';
 
 import './App.css';
 

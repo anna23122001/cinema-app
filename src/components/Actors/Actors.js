@@ -11,13 +11,11 @@ import ActorsList from './ActorsList';
 import ActorForm from './ActorForm';
 
 function Actors() {
-
   const dispatch = useDispatch();
   
   useEffect(() => {
     dispatch(getAllActors())
   }, [dispatch])
-
 
   return (
       <Box>
@@ -42,10 +40,8 @@ function Actors() {
         <Route path="/" element={<ActorsList />} />
         <Route path=":id" element={<ActorItem />} />
         <Route path="add/:id" element={<ActorForm />} />
-        
         <Route path="add" element={<Navigate to="/actors/add/:id"/> } />
       </Routes>
-    
     </Box>
   )
 }

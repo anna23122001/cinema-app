@@ -1,10 +1,11 @@
 import React from 'react'
 import { useSelector } from 'react-redux'
-import { useParams } from 'react-router-dom';
-import { Grid, Stack } from '@mui/material';
+import { useParams, useNavigate } from 'react-router-dom';
+import { Button, Grid, Stack } from '@mui/material';
+import KeyboardReturnIcon from '@mui/icons-material/KeyboardReturn';
 
 import { emptyMovie } from '../../constants';
-import './MovieItem.css'
+import  '../Styles/ItemStyles.css'
 
 function MovieItem() {
   
@@ -16,6 +17,8 @@ function MovieItem() {
 
   const movie = film ? film : emptyMovie;
 
+  const navigate = useNavigate();
+  const goHome = () => navigate('/movies');
   return (
     <Grid container>
       <Grid
@@ -24,7 +27,7 @@ function MovieItem() {
 				xl={12}
 				sm={12}
 				xs={12}
-				className='movie-header' >
+				className='header' >
          <h1>{movie.title}</h1>
       </Grid>
       <Grid item lg={6} md={6} xl={6} sm={6} xs={6}>
@@ -50,7 +53,17 @@ function MovieItem() {
             <p key={index}>{company}</p>
           ))}
         </Stack>
+        
       </Grid>
+          <Button type='button'
+            variant='contained'
+            size='small'
+            startIcon={<KeyboardReturnIcon />}
+            sx={{
+              backgroundColor: "#4783c8",
+              fontSize: "20px"}}
+            onClick={goHome}>
+              Return</Button>
     </Grid>
   )
 }

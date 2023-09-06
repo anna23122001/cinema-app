@@ -26,3 +26,18 @@ export const emptyActor = {
 			nationality: "",
 			img: ""
 }
+
+export const emptyDirector = {
+			movies: [""],
+			fullName: "",
+			birthYear: "",
+			nationality: "",
+			img: ""
+}
+
+export const emptyStudio = {
+			title: "",
+			location: "",
+			foundationYear: "",
+			logo: ""
+}

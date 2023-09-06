@@ -1,11 +1,11 @@
 import React from 'react'
 import { useSelector } from 'react-redux'
-import { useParams } from 'react-router-dom'
-import { Grid } from '@mui/material'
-import { Stack } from '@mui/system'
+import { useNavigate, useParams } from 'react-router-dom'
+import { Button, Grid, Stack } from '@mui/material'
+import KeyboardReturnIcon from '@mui/icons-material/KeyboardReturn';
 
 import { emptyActor } from '../../constants'
-import  './ActorItem.css'
+import  '../Styles/ItemStyles.css'
 
 
 function ActorItem() {
@@ -16,7 +16,10 @@ function ActorItem() {
 
   const star = actors.find((star) => star.id === Number(id))
 
-  const actor = star ? star : emptyActor
+  const actor = star ? star : emptyActor;
+
+  const navigate = useNavigate();
+  const goHome = () => navigate('/actors');
 
   return (
     <Grid container>
@@ -25,7 +28,7 @@ function ActorItem() {
 				xl={12}
 				sm={12}
         xs={12}
-        className='actor-header'>
+        className='header'>
         <h1>{actor.fullName}</h1>
       </Grid>
 
@@ -49,6 +52,16 @@ function ActorItem() {
           <p>{actor.nationality}</p>
         </Stack>
       </Grid>
+
+      <Button type='button'
+          variant='contained'
+          size='small'
+          startIcon={<KeyboardReturnIcon />}
+          sx={{
+              backgroundColor: "#4783c8",
+              fontSize: "20px"}}
+          onClick={goHome}>
+              Return</Button>
     </Grid>
   )
 }

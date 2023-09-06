@@ -10,21 +10,23 @@ import SaveIcon from '@mui/icons-material/Save';
 import KeyboardReturnIcon from '@mui/icons-material/KeyboardReturn';
 import ClearIcon from '@mui/icons-material/Clear';
 
-import { updateActor, createNewActor } from '../../store/slices/ActorsSlice';
-import { emptyActor } from '../../constants';
+import { createNewDirector, updateDirector } from '../../store/slices/DirectorsSlice';
+import { emptyDirector } from '../../constants';
 
 import '../Styles/FormStyles.css'
-function ActorForm() {
+
+function DirectorForm() {
+
   const dispatch = useDispatch();
-  const actors = useSelector((state) => state.listOfActors.actors);
+  const directors = useSelector((state) => state.listOfDirectors.directors)
 
   const { id } = useParams();
-  const currentActor = actors.find((actor) => actor.id === Number(id));
+  const currentDirector = directors.find((director) => director.id === Number(id));
 
   const onFormSubmit = (values) => {
     !values.id
-      ? dispatch(createNewActor(values))
-      : dispatch(updateActor(values));
+      ? dispatch(createNewDirector(values))
+      : dispatch(updateDirector(values));
   };
 
   const navigate = useNavigate();
@@ -33,8 +35,8 @@ function ActorForm() {
   const schema = Yup.object().shape({
     fullName: Yup.string().required('Full name is required field'),
   });
-
-  const renderForm = ({ values, isValid }) => {
+  
+const renderForm = ({ values, isValid }) => {
     return (
       <Form className='form-container'>
         <Stack
@@ -42,8 +44,7 @@ function ActorForm() {
           sx={{
             width: 400,
             margin: '0 auto',
-          }}
-        >
+          }}>
           <label htmlFor='fullName'>Full name</label>
           <Field as={TextField} size='small' type='text' name='fullName' />
         </Stack>
@@ -132,7 +133,9 @@ function ActorForm() {
             name='image'
           />
         </div>
-        <Stack direction='row' justifyContent='center' spacing={5}>
+        <Stack direction='row'
+          justifyContent='center'
+          spacing={5}>
           <Button
             type='submit'
             variant='contained'
@@ -154,8 +157,7 @@ function ActorForm() {
             sx={{
               backgroundColor: '#e0a435',
               fontSize: '20px',
-            }}
-          >
+            }}>
             Reset
           </Button>
           <Button
@@ -178,13 +180,13 @@ function ActorForm() {
 
   return (
     <Formik
-      initialValues={currentActor ? currentActor : emptyActor}
+      initialValues={currentDirector ? currentDirector : emptyDirector}
       onSubmit={onFormSubmit}
       validationSchema={schema}
     >
       {renderForm}
     </Formik>
-  );
+  )
 }
 
-export default ActorForm;
+export default DirectorForm

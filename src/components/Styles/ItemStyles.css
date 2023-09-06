@@ -1,4 +1,4 @@
-.movie-header {
+.header {
     text-align: center;
 }
 
@@ -11,6 +11,7 @@
     object-fit: cover;
     object-position: 50% 10%;
 }
-h1{
+
+h1 {
     font-size: 60px;
 }

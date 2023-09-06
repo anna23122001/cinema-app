@@ -42,12 +42,8 @@ function ActorsList() {
                 </ButtonGroup>
              </Stack>
             )
-
-          })
-  } 
+          })} 
       </List>
-
-
     </Box>
   )
 }
