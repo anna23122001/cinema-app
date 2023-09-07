@@ -14,7 +14,6 @@ function StudiosList() {
     const onDelete = (id) => {
         dispatch(deleteStudio(id))
     }
-
   return (
     <Box>
         <List>

@@ -47,9 +47,7 @@ function Layout() {
           <main>
               <Outlet/>
           </main>
-
         </Grid>
-
         <Grid item xl={12} lg={12} md={12} sm={12} xs={12}
               style={{ position: 'absolute', bottom: -200, width: '100%' }}
         >

@@ -9,11 +9,9 @@ import MovieItem from './MovieItem';
 import { getAllMovies } from '../../store/slices/MoviesSlice'
 import MovieForm from './MovieForm';
 
-
 function Movies() {
   
   const dispatch = useDispatch()
-
     useEffect(() => {
        dispatch(getAllMovies())
     }, [dispatch])

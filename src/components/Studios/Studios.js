@@ -10,14 +10,12 @@ import StudioForm from './StudioForm';
 
 import { getAllStudios } from '../../store/slices/StudiosSlice'
 
-
 function Studios() {
   const dispatch = useDispatch();
 
   useEffect(() => {
     dispatch(getAllStudios())
   })
-
   return (
     <Box>
         <Button

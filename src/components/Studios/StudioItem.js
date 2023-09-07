@@ -7,7 +7,6 @@ import { Button, Grid, Stack } from '@mui/material';
 import { emptyStudio } from '../../constants'
 import '../Styles/ItemStyles.css'
 
-
 function StudioItem() {
 
     const studios = useSelector((state) => state.listOfStudios.studios);

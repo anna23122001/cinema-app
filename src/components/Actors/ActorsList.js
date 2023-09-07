@@ -14,8 +14,7 @@ function ActorsList() {
 
     const onDelete = (id) => {
       dispatch(deleteActor(id))
-    }
-  
+    } 
   return (
     <Box>
       <List>
