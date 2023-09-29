@@ -45,7 +45,7 @@ function Layout() {
         </Grid>
         <Grid item x1={9} lg={7} md={9} sm={12} xs={12} >
           <main>
-              <Outlet/>
+              <Outlet />
           </main>
         </Grid>
         <Grid item xl={12} lg={12} md={12} sm={12} xs={12}
