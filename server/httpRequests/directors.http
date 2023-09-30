@@ -1,0 +1,5 @@
+GET http://localhost:3000/directors
+
+###
+
+GET http://localhost:3000/directors/65692d5c-142c-482f-a5d6-ae3ae1d64116

@@ -6,12 +6,11 @@ const express = require('express');
 const app = express();
 
 const actorControllers = require('./controllers/actorController')
-
-// app.use(express.static('./public'));
-// app.use(express.static(path.join(__dirname, '..', 'public')));
+const directorControllers = require('./controllers/directorController')
+const studioControllers = require('./controllers/studioController')
+const movieControllers = require('./controllers/movieController')
 
 app.use(express.static(path.resolve('public')));
-
 
 app.get('/', (req, res) => {
     fs.readFile('./public/index.html', 'utf-8', (err, data) => {
@@ -32,23 +31,23 @@ app.post('/actors', () => { })
 app.put('/actors/id', () => { })
 app.delete('/actors/id', () => { })
 // Directors
-app.get('/directors', actorControllers.)
-app.get('/directors/:directorId', actorControllers.)
+app.get('/directors', directorControllers.getDirectors)
+app.get('/directors/:directorId', directorControllers.getDirectorById)
 app.post('/directors', () => { })
 app.put('/directors/id', () => { })
 app.delete('/directors/id', () => { })
 // Studios
-app.get('/studios', actorControllers.)
-app.get('/studios/:studioId', actorControllers.)
+app.get('/studios', studioControllers.getStudios)
+app.get('/studios/:studioId', studioControllers.getStudioById)
 app.post('/studios', () => { })
 app.put('/studios/id', () => { })
 app.delete('/studios/id', () => { })
-// Films
-app.get('/films', actorControllers.)
-app.get('/films/:filmId', actorControllers.)
-app.post('/films', () => { })
-app.put('/films/id', () => { })
-app.delete('/films/id', () => { })
+// // Films
+app.get('/movies', movieControllers.getMovies)
+app.get('/movies/:movieId', movieControllers.getMovieById)
+app.post('/movies', () => { })
+app.put('/movies/id', () => { })
+app.delete('/movies/id', () => { })
 
 app.get('/contact', (req, res) => {
     fs.readFile('./public/contact.html', 'utf-8', (err, data) => {
@@ -62,17 +61,5 @@ app.get('/contact', (req, res) => {
     })
 })
 
-// app.get('/images/*', (req, res) => {
-//     const url = req.url;
-//     fs.readFile(`./public${url}`, (err, data) => {
-//         if (err) {
-//             res.statusCode = 404;
-//             throw err;
-//         } 
-//         res.setHeader('Content-Type', 'image/jpeg');
-//         res.write(data);
-//         res.end();
-//     })
-// })
 
 module.exports = app;

@@ -1,0 +1,5 @@
+GET http://localhost:3000/movies
+
+###
+
+GET http://localhost:3000/movies/b84a5d80-ae03-41c2-8f9e-1a8fd58d33e6
