@@ -1,5 +1,35 @@
-GET http://localhost:3000/studios
+GET http://localhost:5000/api/studios
 
 ###
 
-GET http://localhost:3000/studios/1aceca72-0990-4f57-aaf4-e038b4b44892
+GET http://localhost:5000/api/studios/1
+
+###
+
+POST http://localhost:5000/api/studios
+Content-Type: application/json
+
+{
+    "title": "Lucasfilm Studio",
+    "year_foundation": "1949",
+    "location":"America",
+    "poster": "https://pbs.twimg.com/media/Erf5Hm_XUAMwZNg.jpg"
+}
+
+###
+
+PUT http://localhost:5000/api/studios HTTP/1.1
+Content-Type: application/json
+
+{
+     "title": "Paramount Pictures",
+    "year_foundation": "1912",
+    "location":"Canada",
+    "poster": "https://pbs.twimg.com/media/Erf5Hm_XUAMwZNg.jpg",
+    "studio_id": 8
+}
+
+###
+
+DELETE http://localhost:5000/api/studios/1 HTTP/1.1
+Content-Type: application/json

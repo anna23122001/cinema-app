@@ -21,10 +21,10 @@ class MovieController{
             const { movieId } = req.params;
             const movie = await db.query(  
                 `SELECT
-            movie_id,
-            title AS movie_title,
-            relise_year,
-            poster,
+            movies.movie_id,
+            movies.title,
+            movies.relise_year,
+            movies.poster,
             studios.title AS studio,
             genres.title AS genre
             FROM movies
@@ -32,7 +32,7 @@ class MovieController{
             USING(studio_id)
             JOIN genres 
             USING(genre_id)
-            WHERE movie_id=$1
+            WHERE movies.movie_id=$1
             `,
                 [movieId]
             );
@@ -92,7 +92,7 @@ class MovieController{
                         SELECT genre_id 
                         FROM genres
                         WHERE title=$3
-                    )
+                    ),
                     studio_id=(
                         SELECT studio_id 
                         FROM studios
