@@ -10,7 +10,7 @@ POST http://localhost:5000/api/actors
 Content-Type: application/json
 
 {
-    "full_name": "Jhone Doe",
+    "full_name": "     Jhone Doe",
     "birth_year": "1985",
     "death_year": null,
     "nationality": "USA",

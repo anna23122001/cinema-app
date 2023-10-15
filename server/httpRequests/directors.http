@@ -10,7 +10,7 @@ POST http://localhost:5000/api/directors
 Content-Type: application/json
 
 {
-    "full_name": "James Camer",
+    "full_name": "   James Cameron",
     "birth_year": "2000",
     "death_year": null,
     "nationality": "UK",
