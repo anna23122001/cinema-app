@@ -4,8 +4,10 @@ class DirectorController{
     async getDirectors(req, res) {
         try {
             const directors = await db.query(
-                `SELECT full_name, birth_year, director_id
+                `SELECT full_name, birth_year, director_id,  nat.description AS nationality
                 FROM directors
+                JOIN nationalities AS nat
+                USING (national_id)
                 ORDER BY director_id
                 `
             );

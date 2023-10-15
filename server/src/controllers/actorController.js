@@ -4,8 +4,10 @@ class ActorController{
     async getActors(req, res) {
         try {
             const actors = await db.query(
-                `SELECT full_name, birth_year, actor_id
+                `SELECT full_name, birth_year, actor_id, nat.description AS nationality
                 FROM actors
+                JOIN nationalities AS nat
+                USING (national_id)
                 ORDER BY actor_id
                 `
             );
@@ -58,7 +60,7 @@ class ActorController{
                 VALUES($1, $2, $3, (
                     SELECT national_id 
                     FROM nationalities
-                    WHERE title=$4), $5)
+                    WHERE description=$4), $5)
                 RETURNING *
                 `, [full_name, birth_year, death_year, nationality, poster]
             );
@@ -86,7 +88,7 @@ class ActorController{
                     national_id=(
                         SELECT national_id 
                         FROM nationalities
-                        WHERE title=$4), 
+                        WHERE description=$4), 
                     poster=$5
                 WHERE actor_id=$6
                 RETURNING *

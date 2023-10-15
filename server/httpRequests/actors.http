@@ -2,7 +2,7 @@ GET http://localhost:5000/api/actors HTTP/1.1
 
 ###
 
-GET http://localhost:5000/api/actors/7
+GET http://localhost:5000/api/actors/5
 
 ###
 
@@ -10,10 +10,10 @@ POST http://localhost:5000/api/actors
 Content-Type: application/json
 
 {
-    "full_name": "     Jhone Doe",
+    "full_name": "Jhone Doe",
     "birth_year": "1985",
     "death_year": null,
-    "nationality": "USA",
+    "nationality": "Ukraine",
     "poster": "https://pbs.twimg.com/media/Erf5Hm_XUAMwZNg.jpg"
 }
 
@@ -26,9 +26,9 @@ Content-Type: application/json
     "full_name": "Jhone ttttDoe",
     "birth_year": "1985",
     "death_year": null,
-    "nationality": "USA",
+    "nationality": "Germany",
     "foto": "https://pbs.twimg.com/media/Erf5Hm_XUAMwZNg.jpg",
-    "actor_id": 7
+    "actor_id": 36
 }
 
 ###

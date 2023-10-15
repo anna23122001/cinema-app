@@ -10,7 +10,7 @@ POST http://localhost:5000/api/movies
 Content-Type: application/json
 
 {
-    "title": "Gone by the wind",
+    "title": "      Gone by the wind",
     "relise_year": "2000",
     "genre":"Drama",
     "studio": "NewLine Cinema",

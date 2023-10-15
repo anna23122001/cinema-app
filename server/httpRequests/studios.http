@@ -10,7 +10,7 @@ POST http://localhost:5000/api/studios
 Content-Type: application/json
 
 {
-    "title": "Lucasfilm Studio",
+    "title": "Lucasfilmdd1 Studio",
     "year_foundation": "1949",
     "location":"America",
     "poster": "https://pbs.twimg.com/media/Erf5Hm_XUAMwZNg.jpg"
@@ -31,5 +31,5 @@ Content-Type: application/json
 
 ###
 
-DELETE http://localhost:5000/api/studios/1 HTTP/1.1
+DELETE http://localhost:5000/api/studios/16 HTTP/1.1
 Content-Type: application/json
