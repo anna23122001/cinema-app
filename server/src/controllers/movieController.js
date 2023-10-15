@@ -1,46 +1,128 @@
-const { v4: uuidv4 } = require('uuid');
+const db = require('../db')
 
-const movies = [
-    {
-        id: uuidv4(),
-        title: 'Gladiator',
-        relise_year: 2000,
-        studio: 'Scott Free Productions',
-        genre: 'Western'
-    },
-      {
-        id: uuidv4(),
-        title: 'Indian Jones',
-        relise_year: 1981,
-        studio: 'Paramount Pictures',
-        genre: 'Romance'
-    },
-     {
-        id: uuidv4(),
-        title: 'Aliens',
-        relise_year: 1986,
-        studio: '20th Century Studio',
-        genre: 'Fantasy'
-    },
-      {
-        id: uuidv4(),
-        title: 'Pirates of Caribbean',
-        relise_year: 2003,
-        studio: 'Walt Disney Pictures',
-        genre: 'Fantasy'
-    },
-];
+class MovieController{
+    async getMovies(req, res) {
+        try {
+            const movies = await db.query(
+                `SELECT title, relise_year, movie_id
+                FROM movies
+                ORDER BY movie_id
+                `
+            );
+            console.log(movies.rows)
+            res.json(movies.rows)
+        } catch (error) {
+            console.log(error)
+        }
+    }
 
-module.exports.getMovies = (req, res) => {
-    res.status(200).send(movies)
+    async getMovieById(req, res){ 
+        try {
+            const { movieId } = req.params;
+            const movie = await db.query(  
+                `SELECT
+            movie_id,
+            title AS movie_title,
+            relise_year,
+            poster,
+            studios.title AS studio,
+            genres.title AS genre
+            FROM movies
+            JOIN studios 
+            USING(studio_id)
+            JOIN genres 
+            USING(genre_id)
+            WHERE movie_id=$1
+            `,
+                [movieId]
+            );
+            console.log(movie.rows[0]);
+            res.json(movie.rows[0])
+        } catch (error) {
+            console.log(error)
+        }
+    }
+
+    async createMovie(req, res) {
+        try {
+            const {
+                title,
+                relise_year,
+                genre,
+                studio,
+                poster} = req.body;
+            const newMovie = await db.query(
+                `INSERT INTO movies
+                (title,
+                relise_year,
+                genre_id,
+                studio_id,
+                poster)
+                VALUES($1, $2, (
+                    SELECT genre_id 
+                    FROM genres
+                    WHERE title=$3), (
+                    SELECT studio_id 
+                    FROM studios
+                    WHERE title=$4), $5)
+                RETURNING *
+                `, [title, relise_year, genre, studio, poster]
+            );
+            res.json(newMovie.rows[0])
+        } catch (error) {
+            console.log(error)
+        }
+    }
+    async updateMovie(req, res) {
+        try {
+            const {
+                title,
+                relise_year,
+                genre,
+                studio,
+                poster,
+                movie_id
+            } = req.body;
+            const updatedMovie = await db.query(
+                `UPDATE movies
+                    SET 
+                    title=$1,
+                    relise_year=$2,
+                    genre_id=(
+                        SELECT genre_id 
+                        FROM genres
+                        WHERE title=$3
+                    )
+                    studio_id=(
+                        SELECT studio_id 
+                        FROM studios
+                        WHERE title=$4), 
+                    poster=$5
+                WHERE movie_id=$6
+                RETURNING *
+                `, [title, relise_year, genre, studio,
+                poster, movie_id]
+            );
+            res.json(updatedMovie.rows[0])
+        } catch (error) {
+            console.log(error)
+        }
+    }
+
+    async deleteMovie(req, res) {
+        try {
+            const { movieId } = req.params;
+            const delMovie = await db.query(
+                `DELETE FROM movies
+                WHERE movie_id=$1
+                RETURNING *`,
+                [movieId]
+            );
+            res.json(delMovie.rows[0])
+        } catch (error) {
+            console.log(error)
+        }
+    }
 }
 
-module.exports.getMovieById = (req, res) => {
-    const { movieId } = req.params
-    const [movie] = movies.filter(movie => movie.id === movieId);
-    if (movie) {
-        res.status(200).send(movie)
-    } else {
-        res.status(404).send('Movie is not found')
-    }
-};
+module.exports = new MovieController();

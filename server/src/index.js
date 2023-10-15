@@ -22,7 +22,6 @@ app.get('/phones', (req, res) => {
 // send query params
 
 app.get('/codes', (req, res) => {
-    console.log(first)
     req.query
 })
 

@@ -1,5 +1,37 @@
-GET http://localhost:3000/directors
+GET http://localhost:5000/api/directors
 
 ###
 
-GET http://localhost:3000/directors/65692d5c-142c-482f-a5d6-ae3ae1d64116
+GET http://localhost:5000/api/directors/5
+
+###
+
+POST http://localhost:5000/api/directors
+Content-Type: application/json
+
+{
+    "full_name": "James Camer",
+    "birth_year": "2000",
+    "death_year": null,
+    "nationality": "UK",
+    "poster": "https://pbs.twimg.com/media/Erf5Hm_XUAMwZNg.jpg"
+}
+
+###
+
+PUT http://localhost:5000/api/directors HTTP/1.1
+Content-Type: application/json
+
+{
+     "full_name": "Steven Spielbergggg",
+    "birth_year": "2000",
+    "death_year": null,
+    "nationality": "UK",
+    "poster": "https://pbs.twimg.com/media/Erf5Hm_XUAMwZNg.jpg",
+    "director_id": 1
+}
+
+###
+
+DELETE http://localhost:5000/api/directors/6 HTTP/1.1
+Content-Type: application/json
