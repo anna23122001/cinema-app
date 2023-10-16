@@ -2,7 +2,7 @@ GET http://localhost:5000/api/studios
 
 ###
 
-GET http://localhost:5000/api/studios/1
+GET http://localhost:5000/api/studios/3
 
 ###
 

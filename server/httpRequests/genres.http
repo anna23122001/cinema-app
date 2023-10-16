@@ -2,7 +2,7 @@ GET http://localhost:5000/api/genres
 
 ###
 
-GET http://localhost:5000/api/genres/1
+GET http://localhost:5000/api/genres/2
 
 ###
 
@@ -20,7 +20,7 @@ Content-Type: application/json
 
 {
     "title": "K-POP",
-    "genre_id": 1
+    "genre_id": 2
 }
 
 ###

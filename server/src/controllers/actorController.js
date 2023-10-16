@@ -35,7 +35,6 @@ class ActorController{
                 WHERE actor_id=$1`,
                 [actorId]
             );
-            console.log(actor.rows[0]);
             res.json(actor.rows[0])
         } catch (error) {
             console.log(error)
