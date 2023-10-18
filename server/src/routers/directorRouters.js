@@ -1,13 +1,13 @@
 const Router = require('express');
 
 const directorController = require('../controllers/directorController');
-const {validatePerson} = require('../middleware/validate.mw')
+const {validate} = require('../middleware')
 
 const router = new Router();
 
 router
     .route('/')
-    .post(validatePerson, directorController.createDirector)
+    .post(validate.validatePerson, directorController.createDirector)
     .get(directorController.getDirectors)
     .put(directorController.updateDirector);
 

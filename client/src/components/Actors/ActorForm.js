@@ -19,10 +19,10 @@ function ActorForm() {
   const actors = useSelector((state) => state.listOfActors.actors);
 
   const { id } = useParams();
-  const currentActor = actors.find((actor) => actor.id === Number(id));
+  const currentActor = actors.find((actor) => actor.actor_id === Number(id));
 
   const onFormSubmit = (values) => {
-    !values.id
+    !values.actor_id
       ? dispatch(createNewActor(values))
       : dispatch(updateActor(values));
   };
@@ -31,7 +31,7 @@ function ActorForm() {
   const goHome = () => navigate('/actors');
 
   const schema = Yup.object().shape({
-    fullName: Yup.string().required('Full name is required field'),
+    full_name: Yup.string().required('Full name is required field'),
   });
 
   const renderForm = ({ values, isValid }) => {
@@ -43,10 +43,10 @@ function ActorForm() {
             margin: '0 auto',
           }}
         >
-          <label htmlFor='fullName'>Full name</label>
-          <Field as={TextField} size='small' type='text' name='fullName' />
+          <label htmlFor='full_name'>Full name</label>
+          <Field as={TextField} size='small' type='text' name='full_name' />
         </Stack>
-        <ErrorMessage name='fullName'>
+        <ErrorMessage name='full_name'>
           {(msg) => <div className='error'>{msg}</div>}
         </ErrorMessage>
 
@@ -105,8 +105,8 @@ function ActorForm() {
             margin: '0 auto',
           }}
         >
-          <label htmlFor='birthYear'>BirthYear</label>
-          <Field as={TextField} size='small' type='text' name='birthYear' />
+          <label htmlFor='birth_year'>birth_year</label>
+          <Field as={TextField} size='small' type='text' name='birth_year' />
         </Stack>
         <Stack
           spacing={1}
@@ -118,7 +118,7 @@ function ActorForm() {
           <Field as={TextField} size='small' type='text' name='nationality' />
         </Stack>
         <div>
-          <label htmlFor='image'>Photo</label>
+          <label htmlFor='poster'>Photo</label>
           <Field
             as={TextField}
             sx={{
@@ -126,7 +126,7 @@ function ActorForm() {
             }}
             type='text'
             size='small'
-            name='image'
+            name='poster'
           />
         </div>
         <Stack direction='row' justifyContent='center' spacing={5}>

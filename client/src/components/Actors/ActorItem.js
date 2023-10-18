@@ -13,7 +13,7 @@ function ActorItem() {
   const actors = useSelector((state) => state.listOfActors.actors)
   const { id } = useParams();
 
-  const star = actors.find((star) => star.id === Number(id))
+  const star = actors.find((star) => star.actor_id === Number(id))
 
   const actor = star ? star : emptyActor;
 
@@ -28,11 +28,11 @@ function ActorItem() {
 				sm={12}
         xs={12}
         className='header'>
-        <h1>{actor.fullName}</h1>
+        <h1>{actor.full_name}</h1>
       </Grid>
 
       <Grid item lg={6} md={6} xl={6} sm={6} xs={6}>
-        <img src={actor.image} alt="Actors photo"
+        <img src={actor.poster} alt="Actors photo"
         className='item-img'/>
       </Grid>
 
@@ -46,7 +46,7 @@ function ActorItem() {
           ))}
 
           <h3>BirthYear</h3>
-          <p>{actor.birthYear}</p>
+          <p>{actor.birth_year}</p>
 
           <h3>Nationality</h3>
           <p>{actor.nationality}</p>

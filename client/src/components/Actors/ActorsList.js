@@ -20,20 +20,20 @@ function ActorsList() {
       <List>
         {actors.map((actor) => {
             return(
-              <Stack key={actor.id} direction='row'>
+              <Stack key={actor.actor_id} direction='row'>
                  <ListItem>
-                  <Link to={`${actor.id}`}>
-                      {actor.fullName}</Link>                
+                  <Link to={`${actor.actor_id}`}>
+                      {actor.full_name}</Link>                
                 </ListItem>
                 <ButtonGroup>
 
                   <Button startIcon={<EditRoundedIcon />}>
-                    <Link to={`add/${actor.id}`}>
+                    <Link to={`add/${actor.actor_id}`}>
                       Edit</Link>  
                   </Button>
 
                  <Button
-                    onClick={() => onDelete(actor.id)}
+                    onClick={() => onDelete(actor.actor_id)}
                     startIcon={<DeleteForeverRoundedIcon />}>
                       Del 
                   </Button>

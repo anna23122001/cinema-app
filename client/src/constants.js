@@ -12,32 +12,32 @@ export const setStatus = (state) => {
 }
  
 export const emptyMovie = {
-			title: "",
-			producers: [""],
-			stars: [""],
-			companies: [""],
-			poster: ""
+			title: '',
+			producers: [''],
+			stars: [''],
+			companies: [''],
+			poster: ''
 }
 
 export const emptyActor = {
-			movies: [""],
-			fullName: "",
-			birthYear: "",
-			nationality: "",
-			img: ""
+			full_name: '',
+			birth_year: '',
+			death_year: '',
+			nationality: '',
+			poster: ''
 }
 
 export const emptyDirector = {
-			movies: [""],
-			fullName: "",
-			birthYear: "",
-			nationality: "",
-			img: ""
+			movies: [''],
+			fullName: '',
+			birthYear: '',
+			nationality: '',
+			img: ''
 }
 
 export const emptyStudio = {
-			title: "",
-			location: "",
-			foundationYear: "",
-			logo: ""
+			title: '',
+			location: '',
+			foundationYear: '',
+			logo: ''
 }
