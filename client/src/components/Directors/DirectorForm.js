@@ -21,16 +21,16 @@ function DirectorForm() {
   const directors = useSelector((state) => state.listOfDirectors.directors)
 
   const { id } = useParams();
-  const currentDirector = directors.find((director) => director.id === Number(id));
+  const currentDirector = directors.find((director) => director.director_id === Number(id));
 
   const onFormSubmit = (values) => {
-    !values.id
+    !values.director_id
       ? dispatch(createNewDirector(values))
       : dispatch(updateDirector(values));
   };
 
   const navigate = useNavigate();
-  const goHome = () => navigate('/actors');
+  const goHome = () => navigate('/directors');
 
   const schema = Yup.object().shape({
     fullName: Yup.string().required('Full name is required field'),
@@ -44,10 +44,10 @@ const renderForm = ({ values, isValid }) => {
           sx={{
             margin: '0 auto',
           }}>
-          <label htmlFor='fullName'>Full name</label>
-          <Field as={TextField} size='small' type='text' name='fullName' />
+          <label htmlFor='full_name'>Full name</label>
+          <Field as={TextField} size='small' type='text' name='full_name' />
         </Stack>
-        <ErrorMessage name='fullName'>
+        <ErrorMessage name='full_name'>
           {(msg) => <div className='error'>{msg}</div>}
         </ErrorMessage>
 
@@ -106,9 +106,19 @@ const renderForm = ({ values, isValid }) => {
             margin: '0 auto',
           }}
         >
-          <label htmlFor='birthYear'>BirthYear</label>
-          <Field as={TextField} size='small' type='text' name='birthYear' />
+          <label htmlFor='birth_year'>Birth year</label>
+          <Field as={TextField} size='small' type='text' name='birth_year' />
         </Stack>
+        <Stack
+          spacing={1}
+          sx={{
+            margin: '0 auto',
+          }}
+        >
+          <label htmlFor='death_year'>Death year</label>
+          <Field as={TextField} size='small' type='text' name='death_year' />
+        </Stack>
+
         <Stack
           spacing={1}
           sx={{

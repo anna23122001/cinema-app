@@ -18,10 +18,10 @@ function StudioForm() {
   const studios = useSelector((state) => state.listOfStudios.studios);
 
   const {id} = useParams()
-  const currentStudio = studios.find((studio) => studio.id === Number(id))
+  const currentStudio = studios.find((studio) => studio.studio_id === Number(id))
 
    const onFormSubmit = (values) => {
-    !values.id
+    !values.studio_id
       ? dispatch(createNewStudio(values))
       : dispatch(updateStudio(values));
    };
@@ -64,12 +64,12 @@ function StudioForm() {
             margin: '0 auto',
           }}
         >
-          <label htmlFor='foundationYear'>Year of fundation</label>
-          <Field as={TextField} size='small' type='text' name='foundationYear' />
+          <label htmlFor='year_foundation'>Year of fundation</label>
+          <Field as={TextField} size='small' type='text' name='year_foundation' />
         </Stack>
 
         <div>
-          <label htmlFor='logo'>Logo</label>
+          <label htmlFor='poster'>Poster</label>
           <Field
             as={TextField}
             sx={{
@@ -77,7 +77,7 @@ function StudioForm() {
             }}
             type='text'
             size='small'
-            name='logo'
+            name='poster'
           />
         </div>
 

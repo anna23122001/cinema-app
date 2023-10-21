@@ -40,7 +40,7 @@ function Actors() {
         <Route path="/" element={<ActorsList />} />
         <Route path=":actorId" element={<ActorItem />} />
         <Route path="add/:id" element={<ActorForm />} />
-        <Route path="add" element={<Navigate to="/actors/add/:id"/> } />
+        <Route path="add" element={<Navigate to="/actors/add/:actorId"/> } />
       </Routes>
     </Box>
   )

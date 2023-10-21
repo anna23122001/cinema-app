@@ -37,10 +37,10 @@ function Movies() {
 
       <Routes>
         <Route path="/" element={<MoviesList /> } />
-        <Route path=":id" element={<MovieItem />} />
+        <Route path=":movieId" element={<MovieItem />} />
         <Route path="add/:id" element={<MovieForm /> } />
 
-        <Route path="add" element={<Navigate to="/movies/add/:id"/> } />
+        <Route path="add" element={<Navigate to="/movies/add/:movieId"/> } />
       </Routes>
       
 

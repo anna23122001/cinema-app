@@ -11,9 +11,9 @@ function MovieItem() {
   
   const movies = useSelector((state) => state.listOfMovies.movies);
 
-  const { id } = useParams();
+  const { movieId } = useParams();
 
-  const film = movies.find((movie) => movie.id === Number(id));
+  const film = movies.find((movie) => movie.movie_id === Number(movieId));
 
   const movie = film ? film : emptyMovie;
 
@@ -38,21 +38,20 @@ function MovieItem() {
              className='item-info'>
         <Stack>
           <h2>Movie`s information</h2>
+          <h3>Title</h3>
+          <p>{movie.title}</p>
 
-          <h3>Actors</h3>
-          {movie.stars.map((star, index) => (
-            <p key={index}>{star}</p>
-          ))}
+          <h3>Relise</h3>
+          <p>{movie.relise_year}</p>
 
-          <h3>Directors</h3>
-          {movie.producers.map((producer, index) => (
-            <p key={index}>{producer}</p>
+        
+        {movie.studios ? (
+      <div>
+        <h3>Studios</h3>
+      {movie.studios.map((studio) => (
+          <p key={studio.id}>{studio}</p>
           ))}
-
-          <h3>Studios</h3>
-          {movie.companies.map((company, index) => (
-            <p key={index}>{company}</p>
-          ))}
+        </div> ) : null}
         </Stack>
         
       </Grid>

@@ -21,7 +21,7 @@ function MovieForm() {
   const movies = useSelector((state) => state.listOfMovies.movies);
 
   const { id } = useParams();
-  const currentMovie = movies.find((movie) => movie.id === Number(id));
+  const currentMovie = movies.find((movie) => movie.movie_id === Number(id));
 
   const onFormSubmit = (values) => {
     !values.id
@@ -102,18 +102,18 @@ function MovieForm() {
         
         <fieldset>
           <legend>Directors</legend>
-          <FieldArray name='producers'>
+          <FieldArray name='directors'>
             {({push, remove, insert}) => (
               <div>
-                {values.producers && values.producers.length > 0 ? (
-                  values.producers.map((_, index) => (
+                {values.directors && values.directors.length > 0 ? (
+                  values.directors.map((_, index) => (
                   <div key={index}>
                       <Field
                         as={TextField}
                         sx={{
                           width: 300}}
                         size='small'
-                        name={`producers.${index}`} />
+                        name={`directors.${index}`} />
                     <Button
                           type='button'
                           startIcon={<RemoveIcon />}
@@ -147,18 +147,18 @@ function MovieForm() {
 
         <fieldset>
           <legend>Studios</legend>
-          <FieldArray name='companies'>
+          <FieldArray name='studios'>
             {({push, remove, insert}) => (
               <div>
-                {values.companies && values.companies.length > 0 ? (
-                  values.companies.map((_, index) => (
+                {values.studios && values.studios.length > 0 ? (
+                  values.studios.map((_, index) => (
                   <div key={index}>
                       <Field
                         as={TextField}
                         sx={{
                           width: 300}}
                         size='small'
-                        name={`companies.${index}`} />
+                        name={`studios.${index}`} />
                         <Button
                           type='button'
                           startIcon={<RemoveIcon />}

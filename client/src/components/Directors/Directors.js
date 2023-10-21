@@ -38,9 +38,9 @@ function Directors() {
       </Button>
       <Routes>
         <Route path='/' element={<DirectorsList />} />
-        <Route path=':id' element={<DirectorItem />} />
+        <Route path=':directorId' element={<DirectorItem />} />
         <Route path="add/:id" element={<DirectorForm />} />
-        <Route path="add" element={<Navigate to="/directors/add/:id"/> } />
+        <Route path="add" element={<Navigate to="/directors/add/:directorId"/> } />
         </Routes>
 
     </Box>

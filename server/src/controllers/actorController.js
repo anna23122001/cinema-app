@@ -4,14 +4,19 @@ class ActorController{
     async getActors(req, res) {
         try {
             const actors = await db.query(
-                `SELECT full_name, birth_year, actor_id, nat.description AS nationality
+                `SELECT full_name, 
+                birth_year,
+                death_year, 
+                actor_id,
+                poster, 
+                nat.description AS nationality
                 FROM actors
                 JOIN nationalities AS nat
                 USING (national_id)
                 ORDER BY actor_id
                 `
             );
-            console.log(actors.rows)
+
             res.json(actors.rows)
         } catch (error) {
             console.log(error)

@@ -20,15 +20,15 @@ function DirectorsList() {
       <List>
         {directors.map((director) => {
           return (
-            <Stack key={director.id} direction='row'>
+            <Stack key={director.director_id} direction='row'>
               <ListItem>
-                <Link to={`${director.id}`}>
-                  {director.fullName}
+                <Link to={`${director.director_id}`}>
+                  {director.full_name}
                 </Link>
               </ListItem>
               <ButtonGroup>
                   <Button startIcon={<EditRoundedIcon />}>
-                    <Link to={`add/${director.id}`}>
+                    <Link to={`add/${director.director_id}`}>
                       Edit</Link>  
                   </Button>
                   <Button

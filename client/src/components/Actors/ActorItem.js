@@ -11,9 +11,9 @@ import  '../Styles/ItemStyles.css'
 function ActorItem() {
 
   const actors = useSelector((state) => state.listOfActors.actors)
-  const { id } = useParams();
+  const { actorId } = useParams();
 
-  const star = actors.find((star) => star.actor_id === Number(id))
+  const star = actors.find((star) => star.actor_id === Number(actorId))
 
   const actor = star ? star : emptyActor;
 
@@ -40,16 +40,25 @@ function ActorItem() {
              className='item-info'>
         <Stack>
           <h2>Actors Biography</h2>
-          <h3>Movies</h3>
-          {actor.movies.map((movie, index) => (
-            <p key={index}>{movie}</p>
+          {/* {actor.movies ? (
+      <div>
+        <h3>Movies</h3>
+        {actor.movies.map((movie) => (
+          <p key={movie.id}>{movie}</p>
           ))}
+        </div>
+      ) : null} */}
 
           <h3>BirthYear</h3>
           <p>{actor.birth_year}</p>
 
+          <h3>DeathYear</h3>
+          <p>{actor.death_year}</p>
+
           <h3>Nationality</h3>
           <p>{actor.nationality}</p>
+
+          
         </Stack>
       </Grid>
 

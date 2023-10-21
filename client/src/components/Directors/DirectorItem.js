@@ -12,9 +12,9 @@ function DirectorItem() {
 
   const directors = useSelector((state) => state.listOfDirectors.directors)
 
-  const { id } = useParams();
+  const { directorId } = useParams();
 
-  const producer = directors.find((producer) => producer.id === Number(id))
+  const producer = directors.find((producer) => producer.director_id === Number(directorId))
 
   const director = producer ? producer : emptyActor;
 
@@ -30,10 +30,10 @@ function DirectorItem() {
 				sm={12}
         xs={12}
         className='header'>
-        <h1>{director.fullName}</h1>
+        <h1>{director.full_name}</h1>
       </Grid>
       <Grid item lg={6} md={6} xl={6} sm={6} xs={6}>
-        <img src={director.image} alt="Directors photo"
+        <img src={director.poster} alt="Directors photo"
           className='item-img' />
         
       </Grid>
@@ -41,13 +41,16 @@ function DirectorItem() {
        className='item-info'>
         <Stack>
           <h2>Directors Biography</h2>
-          <h3>Movies</h3>
-          {director.movies.map((movie, index) => (
+          {/* <h3>Movies</h3> */}
+          {/* {director.movies.map((movie, index) => (
             <p key={index}>{movie}</p>
-          ))}
+          ))} */}
 
           <h3>BirthYear</h3>
-          <p>{director.birthYear}</p>
+          <p>{director.birth_year}</p>
+
+          <h3>DeathYear</h3>
+          <p>{director.death_year}</p>
 
           <h3>Nationality</h3>
           <p>{director.nationality}</p>

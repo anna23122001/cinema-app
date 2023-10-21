@@ -20,19 +20,19 @@ function MoviesList() {
         <List>
           {movies.map((movie) => {
             return(
-              <Stack key={movie.id}
+              <Stack key={movie.movie_id}
                 direction='row'>
                  <ListItem>
-                  <Link to={`${movie.id}`}>
+                  <Link to={`${movie.movie_id}`}>
                       {movie.title}</Link>                
                 </ListItem>
                 <ButtonGroup>
                   <Button startIcon={<EditRoundedIcon />}>
-                    <Link to={`add/${movie.id}`}>
+                    <Link to={`add/${movie.movie_id}`}>
                       Edit</Link>  
                   </Button>
                   <Button
-                    onClick={() => onDelete(movie.id)}
+                    onClick={() => onDelete(movie.movie_id)}
                     startIcon={<DeleteForeverRoundedIcon />}>
                       Del 
                   </Button>

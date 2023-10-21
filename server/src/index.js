@@ -6,26 +6,6 @@ const app = require('./app');
 
 const PORT = process.env.PORT || 5000;
 
-// process
-
-// Dowloading
-app.get('/download', (req, res) => {
-    console.log('download');
-    res.download(path.resolve('like.txt'))
-})
-
-// Redirect
-app.get('/phones', (req, res) => {
-    res.redirect('/contact');
-})
-
-// send query params
-
-app.get('/codes', (req, res) => {
-    req.query
-})
-
-
 
 const server = http.createServer(app);
 

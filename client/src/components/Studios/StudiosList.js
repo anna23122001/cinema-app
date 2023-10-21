@@ -19,16 +19,16 @@ function StudiosList() {
         <List>
         {studios.map((studio) => {
             return (
-                <Stack key={studio.id}
+                <Stack key={studio.studio_id}
                     direction='row'>
                     <ListItem>
-                        <Link to={`${studio.id}`}>
+                        <Link to={`${studio.studio_id}`}>
                             {studio.title}
                         </Link>
                     </ListItem>
             <ButtonGroup>
                   <Button startIcon={<EditRoundedIcon />}>
-                    <Link to={`add/${studio.id}`}>
+                    <Link to={`add/${studio.studio_id}`}>
                       Edit</Link>  
                   </Button>
                   <Button

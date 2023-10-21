@@ -13,10 +13,9 @@ export const setStatus = (state) => {
  
 export const emptyMovie = {
 			title: '',
-			producers: [''],
-			stars: [''],
-			companies: [''],
-			poster: ''
+			relise_year: '',
+			studio:'',
+			poster:''
 }
 
 export const emptyActor = {
@@ -28,16 +27,16 @@ export const emptyActor = {
 }
 
 export const emptyDirector = {
-			movies: [''],
-			fullName: '',
-			birthYear: '',
+			full_name: '',
+			birth_year: '',
+			death_year: '',
 			nationality: '',
-			img: ''
+			poster: ''
 }
 
 export const emptyStudio = {
 			title: '',
+			year_foundation: '',
 			location: '',
-			foundationYear: '',
-			logo: ''
+			poster: ''
 }

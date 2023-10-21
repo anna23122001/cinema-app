@@ -105,9 +105,20 @@ function ActorForm() {
             margin: '0 auto',
           }}
         >
-          <label htmlFor='birth_year'>birth_year</label>
+          <label htmlFor='birth_year'>Birth year</label>
           <Field as={TextField} size='small' type='text' name='birth_year' />
         </Stack>
+
+        <Stack
+          spacing={1}
+          sx={{
+            margin: '0 auto',
+          }}
+        >
+          <label htmlFor='death_year'>Death year</label>
+          <Field as={TextField} size='small' type='text' name='death_year' />
+        </Stack>
+
         <Stack
           spacing={1}
           sx={{

@@ -10,9 +10,9 @@ import '../Styles/ItemStyles.css'
 function StudioItem() {
 
     const studios = useSelector((state) => state.listOfStudios.studios);
-    const { id } = useParams();
+    const { studioId } = useParams();
 
-    const currentStudio = studios.find((studio) => studio.id === Number(id));
+    const currentStudio = studios.find((studio) => studio.studio_id === Number(studioId));
     const studio = currentStudio ? currentStudio : emptyStudio;
 
     const navigate = useNavigate();
@@ -35,7 +35,7 @@ function StudioItem() {
               xl={6}
               sm={6}
               xs={6}>
-                <img src={studio.logo} alt="Studios logo"
+                <img src={studio.poster} alt="Studios logo"
                 className='item-img' />
         </Grid>
           <Grid item lg={6} md={6} xl={6} sm={6} xs={6}
@@ -46,7 +46,7 @@ function StudioItem() {
                   <p>{studio.location}</p>
 
                   <h3>Foundation Year</h3>
-                  <p>{studio.foundationYear}</p>
+                  <p>{studio.year_foundation}</p>
               </Stack>
           </Grid>
           <Button type='button'
